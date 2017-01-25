@@ -4,9 +4,6 @@
 			 ref='map'
 			 draggable='false'
 			 src="./assets/map.jpg"
-			 :data-map-name='mapName'
-			 :data-coordinate-left='coordinates.left'
-			 :data-coordinate-top='coordinates.top'
 			 :alt="mapName">
 	</div>
 </template>
@@ -25,6 +22,10 @@ export default {
 	},
 
 	mounted() {
+		let URLParams = this.getLocationFromURL();
+		if(URLParams) {
+			this.updateCoordinates(URLParams)
+		}
 		this.$map = $('#map')
 		this.$map.on('load', () => {
 			const constrainTo = this.boundaryCalculator()
@@ -66,6 +67,21 @@ export default {
 				left: pep.$el.css('left')
 			}
 			this.updateCoordinates(coordinates)
+		},
+
+		getLocationFromURL () {
+			let query = location.href.split('?')[1]
+			if (!query) {
+				return undefined;
+			}
+
+			query = query.split('&')
+			let params = {
+				left: parseInt(query[0].split('=')[1]) * -1,
+				top: parseInt(query[1].split('=')[1]) * -1
+			}
+			
+			return params
 		}
 	}
 }

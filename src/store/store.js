@@ -7,6 +7,10 @@ import getters from './getters'
 
 Vue.use(Vuex)
 
+window.onbeforeunload = (e) => {
+	e.preventDefault()
+}
+
 
 export default new Vuex.Store({
 	state,
