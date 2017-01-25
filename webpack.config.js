@@ -41,6 +41,7 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.common.js',
+      'jquery': 'src/lib/jquery.min.js'
     }
   },
   devServer: {
