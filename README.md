@@ -1,5 +1,7 @@
 # map-dragger
 
+My version of the project developed by [@eggplanetio](https://github.com/eggplanetio). You can find his tutorial for this project [here](https://www.youtube.com/playlist?list=PLScaCf_GlyyUPP9fztZDELeCjnVHmNTPd)
+
 > A Vue.js project
 
 ## Build Setup
